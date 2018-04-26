@@ -20,14 +20,19 @@ public class DestinationFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_destination, container, false);
 
-        mTextViewFirstName = rootView.findViewById(R.id.textViewFirstName);
-        mTextViewLastName = rootView.findViewById(R.id.textViewLastName);
+        // initView Method call
+        initView(rootView);
 
         // getting data method call
         gettingData();
 
         return rootView;
 
+    }
+
+    private void initView(View rootView) {
+        mTextViewFirstName = rootView.findViewById(R.id.textViewFirstName);
+        mTextViewLastName = rootView.findViewById(R.id.textViewLastName);
     }
 
 
