@@ -1,6 +1,5 @@
 package rohit.com.datapassingbetweenfragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -30,7 +29,6 @@ public class SourceFragment extends Fragment implements View.OnClickListener {
 
        // register listner method
         registerListner();
-
         return  rootView;
     }
 
@@ -47,7 +45,6 @@ public class SourceFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
-
         String mFirstName = mEditTextFirstName.getText().toString();
         String mLastName = mEditTextLastName.getText().toString();
 
@@ -56,9 +53,6 @@ public class SourceFragment extends Fragment implements View.OnClickListener {
 
        // passingData methodCall
         passingData(mFirstName, mLastName);
-
-
-
     }
 
     // passing data method definition
@@ -72,7 +66,14 @@ public class SourceFragment extends Fragment implements View.OnClickListener {
         DestinationFragment destinationFragment = new DestinationFragment();
         destinationFragment.setArguments(bundle);
 
-        getFragmentManager().beginTransaction().replace(R.id.constraintLayout2,destinationFragment).commit();
+
+        // Replacing the source fragment to destination fragment
+
+        getFragmentManager().
+                beginTransaction().
+                addToBackStack(null).
+                replace(R.id.constraintLayout2, destinationFragment).
+                commit();
     }
 
     // method definition of printToast wiht two string parameter
@@ -81,9 +82,7 @@ public class SourceFragment extends Fragment implements View.OnClickListener {
         if (mFirstName.matches("")|| mLastName.matches("")) {
             Toast.makeText(getContext(), "Please fill Your FirsName and LastName", Toast.LENGTH_SHORT).show();
 
-        }
-
-         else{
+        } else {
             Toast.makeText(getContext(),"FirstName : " + mFirstName + "  " +"LastName : " + mLastName, Toast.LENGTH_SHORT).show();
         }
     }
