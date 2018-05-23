@@ -12,10 +12,8 @@ import android.widget.Toast;
 
 public class SourceFragment extends Fragment implements View.OnClickListener {
 
-    private EditText mEditTextFirstName, mEditTextLastName;
     Button mButtonSend;
-
-
+    private EditText mEditTextFirstName, mEditTextLastName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
